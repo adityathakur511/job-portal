@@ -1,0 +1,30 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+{% block admin%}
+ 
+<h1>view jobseekers complaint</h1>
+<hr/>
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Contact No.</th>
+        <th>Subject</th>
+        <th>Complaint</th>
+        <th>Posted date</th>
+    </tr>
+    {% for r in res %}
+    <tr>
+        <td>{{r.id}}</td>
+        <td>{{r.name}}</td>
+        <td>{{r.contactno}}</td>
+        <td>{{r.subject}}</td>
+        <td>{{r.responsetext}}</td>
+        <td>{{r.posteddate}}</td>
+        
+    </tr>
+    {% endfor %}
+</table>
+
+ {% endblock %}
+

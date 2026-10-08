@@ -1,0 +1,35 @@
+{% extends 'adminbase.html' %}
+{% load static %}
+{% block admin%}
+ <h1 style="color: blue; text-align: center;">View Applied Job</h1>
+</hr>
+<table class="table table-bordered">
+    <tr>
+        <th>Id</th>
+        <th>Job Id</th>
+        <th>Title</th>
+        <th>Name</th>
+        <th>Contact No</th>
+        <th>Email Address</th>
+    
+        <th>Experience</th>
+        <th>Key skill</th>
+        <th>Applied Date</th>
+    </tr>
+    {% for a in aj %}
+    <tr>
+        <td>{{a.id}}</td>
+        <td>{{a.jobid}}</td>
+        <td>{{a.title}}</td>
+        <td>{{a.name}}</td>
+        <td>{{a.contactno}}</td>
+        <td>{{a.emailaddress}}</td>
+        
+        <td>{{a.experience}}</td>
+        <td>{{a.keyskill}}</td>
+        <td>{{a.applieddate}}</td>
+    </tr>
+    {% endfor %}
+</table>
+ {% endblock %}
+
