@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block main %}
+<div style="background-color: rgb(4, 4, 47); color: white;" class="row py-5  text-center text-white ">
+    <div class="col-sm-12"  >
+        <h1>Enquiry</h1>
+        <p>lets enquire</p>
+    </div>
+</div>
+<div class="row bg-secondary" style="box-shadow: 3px whitesmoke;">
+    <div class="col-sm-8 mt-2 mb-2 mx-auto ">
+        <div class="card p-1 bg-#121b29">
+<h2 style="text-align: center;" class="my-5">Enquiry Form</h2>
+{% if messages %}
+            {% for m in messages %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                {{m}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor%}
+            {% endif%}
+<form class="form-group" method="post">
+    {% csrf_token %}
+    <table class="table table-bordered" style="margin: auto; width: 50%;">
+        <tr>
+            <td>Enter Name</td>
+            <td>
+                <input type="text" name="name" class="form-control" required/>
+
+            </td>
+        </tr>
+        <tr>
+            <td>Enter Contact No.</td>
+            <td>
+                <input type="number" name="contactno" class="form-control" required/>
+            </td>
+        </tr>
+        <tr>
+            <td>Enter Email Address</td>
+            <td>
+                <input type="email" name="emailaddress" class="form-control" required/>
+
+            </td>
+        </tr>
+        <tr>
+            <td>Enter Enquiry text</td>
+            <td>
+                <textarea name="enquirytext" class="form-control" required></textarea>
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </td>
+        </tr>
+
+    </table>
+
+
+</form>
+</div>
+</div>
+</div>
+
+
+
+
+{% endblock %}

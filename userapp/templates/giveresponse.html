@@ -1,0 +1,48 @@
+{% extends "userbase.html" %}
+{% load static %}
+
+{% block main %}
+    <h2 style="text-align: center;" >Submit Your Feedback/Complaint </h2>
+    {% if messages %}
+            {% for m in messages %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                {{m}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"> </button>
+            </div>
+            {% endfor %}
+                {% endif %}
+    <form class="form-group" method="post">
+        {% csrf_token %}
+        <div class="container border bg-white p-4 shadow-lg"></div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <p>Select Response Type</p>
+                    <select name="responsetype" class="form-control,">
+                    <option value="feed" class="form-control">Feedback</option>
+                    <option value="comp" class="form-control">Complaint</option>
+                    </select>
+                </div>
+            </div>
+                <div class="row  mt-3">
+                    <div class="col-sm-12">
+                        <p> Enter Subject</p>
+                         <input type="text" name="subject" class="form-control"required/>
+                    </div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-sm-12">
+                        <p>Enter Feedback/Complaint</p>
+                         <textarea name="responsetext" required class="form-control"></textarea>
+                    </div>
+                </div>
+                
+                <div class="row mt-3">
+                    <div class="col-sm-12">
+                        <button type="submit" class="btn btn-success w-100">Submit</button>
+
+                    </div>
+
+                </div>
+                
+    </form>
+{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "userbase.html" %}
+{% load static %}
+{% block main %}
+    <h1 style="color: rgb(2, 2, 52); text-align: center;">view your profile</h1>
+    </hr>
+    <table class="table table-bordered" style="margin: auto; width: 50%;">
+        <tr>
+            <td>Name</td>
+            <td>{{js.name}}</td>
+        </tr>
+        <tr>
+            <td>Contact no</td>
+            <td>{{js.contactno}}</td>
+        </tr>
+        <tr>
+            <td>Email Address</td>
+            <td>{{js.emailaddress}}</td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td>{{js.address}}</td>
+        </tr>
+        <tr>
+            <td>Qualification</td>
+            <td>{{js.qualification}}</td>
+        </tr>
+    </table>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends "userbase.html" %}
+{% load static %}
+
+{% block main %}
+<style>
+    th,td{
+        white-space: nowrap;
+    }
+</style>
+  <h2 style="color: blue; text-align: center;">View Posted Job</h2>
+  {% if messages %}
+            {% for m in messages %}
+            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                {{m}}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"> </button>
+            </div>
+            {% endfor %}
+                {% endif %}
+</hr>
+<div class="table-responsive">
+    <table class="table table-bordered" style="margin: auto;">
+    <thead>
+        <tr class="table-dark">
+            <th>Id</th>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Location</th>
+            <th>Salary</th>
+            <th>Job Type</th>
+            <th>Last Date</th>
+            <th>Posted Date</th>
+            <th>Apply</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for j in ji %}
+        <tr>
+            <td>{{j.id}}</td>
+            <td>{{j.title}}</td>
+            <td>{{j.description}}</td>
+            <td>{{j.location}}</td>
+            <td>{{j.salary}}</td>
+            <td>{{j.jobtype}}</td>
+            <td>{{j.lastdate}}</td>
+            <td>{{j.postdate}}</td>
+            <td><a href="{% url 'applyjob' jobid=j.id %}">
+                <button type="button" class="btn btn-success btn-sm">Apply</button>
+            </a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+
+</table>
+
+</div>
+   
+{% endblock %}
